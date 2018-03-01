@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class SQLHandler {
 	private Connection con;
 	
-	SQLHandler(){
+	public SQLHandler(){
 		con = Conexao.getConexao();
 	}
 	
