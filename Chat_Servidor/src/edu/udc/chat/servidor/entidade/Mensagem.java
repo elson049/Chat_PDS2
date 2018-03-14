@@ -8,7 +8,7 @@ public class Mensagem {
 	public String mensagem;
 	public Date dataMensagem = null;
 	
-	Mensagem(Usuario usuario, Sala sala, String mensagem, Date dataMensagem){
+	public Mensagem(Usuario usuario, Sala sala, String mensagem, Date dataMensagem){
 		this.usuario = usuario;
 		this.sala = sala;
 		this.mensagem = mensagem;
