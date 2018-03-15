@@ -2,7 +2,6 @@ package edu.udc.chat.servidor.servicos;
 
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import edu.udc.chat.servidor.entidade.Mensagem;
 import edu.udc.chat.servidor.entidade.Sala;

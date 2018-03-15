@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import edu.udc.chat.servidor.parser.*;
 
 import edu.udc.chat.servidor.entidade.Usuario;
 
@@ -62,7 +63,7 @@ public class UsuarioServer extends Thread {
 		while(true) {
 			try {
 				String mensagem = in.readUTF();
-				//TODO Parse e dps lidar com a mensagem
+				Parser.parseJSON(mensagem, this);
 			}
 			catch(Exception e) {
 				e.printStackTrace();
