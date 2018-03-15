@@ -27,6 +27,14 @@ public class UsuarioServer extends Thread {
 		this.start();
 	}
 	
+	public UsuarioServer(Socket socket) throws Exception {
+		if(socket == null) throw new Exception("Socket nulo");
+		this.socket = socket;
+		in = new DataInputStream(socket.getInputStream());
+		out = new DataOutputStream(socket.getOutputStream());
+		this.start();
+	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -47,6 +55,7 @@ public class UsuarioServer extends Thread {
 	
 	public void fecharUsuarioServer() {
 		salaServer.removerUsuario(this);
+		this.interrupt();
 		try {
 			this.in.close();
 			this.out.close();
@@ -69,6 +78,10 @@ public class UsuarioServer extends Thread {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public Socket getSocket() {
+		return socket;
 	}
 	
 	

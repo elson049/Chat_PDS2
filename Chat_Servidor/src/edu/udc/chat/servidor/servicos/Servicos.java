@@ -1,7 +1,9 @@
 package edu.udc.chat.servidor.servicos;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import edu.udc.chat.servidor.entidade.Mensagem;
 import edu.udc.chat.servidor.entidade.Sala;
@@ -95,6 +97,25 @@ public class Servicos implements InterfaceServicos{
 	}
 
 	
+	
+	@Override
+	public ArrayList<Sala> getSalasAtivas() {
+		String sql = "SELECT * FROM sala WHERE is_ativo = true";
+		SQLHandler handler = new SQLHandler();
+		ResultSet rs = handler.executarConsulta(sql);
+		ArrayList<Sala> salas = new ArrayList<>();
+		try {
+			while(rs.next()) {
+				Sala sala = new Sala(rs.getString("nome"),rs.getInt("max_usuarios"));
+				salas.add(sala);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return salas;
+	}
+	
 	public static void main(String args[]) {
 		Sala sala = new Sala("Lobby",9);
 		Usuario usuario = new Usuario("email@teste", "usuario", true);
@@ -102,5 +123,6 @@ public class Servicos implements InterfaceServicos{
 		Servicos servicos =  new Servicos();
 		servicos.criarMensagem(mensagem);
 	}
+
 	
 }
