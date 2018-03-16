@@ -55,4 +55,14 @@ public class SalaServer{
 		this.usuarios = null;	
 	}
 	
+	public void broadcastMensagem(String mensagem) {
+		for(UsuarioServer us : usuarios) {
+			us.enviarMensagem(mensagem);
+		}
+	}
+	
+	public String getNomeSala() {
+		return this.sala.nome;
+	}
+	
 }

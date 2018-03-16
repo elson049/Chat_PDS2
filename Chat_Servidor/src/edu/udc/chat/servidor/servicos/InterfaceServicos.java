@@ -8,5 +8,6 @@ public interface InterfaceServicos {
 	public void criarSala(Sala sala);
 	public void criarMensagem(Mensagem mensagem);
 	public ArrayList<Sala> getSalasAtivas();
+	public Usuario login(String email, String senha);
 	//TODO servicos relacionados ao envio e recebimento das mensagens
 }

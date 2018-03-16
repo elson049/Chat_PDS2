@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Mathe/eclipse-workspace/Chat_PDS2/Chat_Servidor/plugins/mysql-connector-java-5.1.45-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Mathe/eclipse-workspace/Chat_PDS2/Chat_Servidor/plugins/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Robert/eclipse-workspace/Chat_PDS2/Chat_Servidor/plugins/mysql-connector-java-5.1.46.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Robert/eclipse-workspace/Chat_PDS2/Chat_Servidor/plugins/gson-2.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -35,6 +35,10 @@ public class UsuarioServer extends Thread {
 		this.start();
 	}
 	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -43,6 +47,7 @@ public class UsuarioServer extends Thread {
 		this.salaServer = salaServer;
 	}
 	
+
 	public void enviarMensagem(String mensagem) {
 		try {
 			out.writeUTF(mensagem);
@@ -69,7 +74,7 @@ public class UsuarioServer extends Thread {
 	
 	
 	public void run() {
-		while(true) {
+		while(!this.isInterrupted()) {
 			try {
 				String mensagem = in.readUTF();
 				Parser.parseJSON(mensagem, this);
@@ -84,6 +89,11 @@ public class UsuarioServer extends Thread {
 		return socket;
 	}
 	
+	public void broadcastMensagem(String mensagem) {
+		if(salaServer != null) {
+			salaServer.broadcastMensagem(mensagem);
+		}
+	}
 	
 	
 }

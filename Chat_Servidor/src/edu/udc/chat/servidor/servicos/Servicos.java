@@ -124,5 +124,22 @@ public class Servicos implements InterfaceServicos{
 		servicos.criarMensagem(mensagem);
 	}
 
+	@Override
+	public Usuario login(String email, String senha) {
+		String sql = "SELECT * FROM usuario WHERE email = \"" + email + "\" AND senha = \"" + senha + "\"";
+		SQLHandler handler = new SQLHandler();
+		ResultSet rs = handler.executarConsulta(sql);
+		try {
+			if(rs.next()) {
+				Usuario usuario =  new Usuario(rs.getString("email"), rs.getString("apelido"), rs.getBoolean("is_admin"));
+				return usuario;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	
 }

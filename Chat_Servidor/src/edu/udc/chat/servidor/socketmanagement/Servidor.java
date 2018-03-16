@@ -12,7 +12,7 @@ public class Servidor extends Thread{
 
 	
 	private ServerSocket ssListener;
-	private List<SalaServer> salas;
+	private static List<SalaServer> salas;
 	private int porta;
 	private List<UsuarioServer> usuariosSemSala;
 	
@@ -51,6 +51,16 @@ public class Servidor extends Thread{
 				usuariosSemSala.remove(aux);
 			}
 		}
+	}
+	
+	public static SalaServer getSalaServerByNome(String nomeSala) {
+		for(SalaServer sala : salas) {
+			if(sala.getNomeSala().equals(nomeSala)) {
+				return sala;
+			}
+		}
+		
+		return null;
 	}
 	
 	
